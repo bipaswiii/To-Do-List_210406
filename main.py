@@ -19,7 +19,18 @@ my_font=Font(
 my_frame=Frame(root,)
 my_frame.pack(pady=10)
 
-
+#Listbox making
+my_list= Listbox(my_frame,
+                 font=my_font,
+                 width=25,
+                 height=5,
+                 bg="SystemButtonFace",
+                 bd=0,
+                 fg="#464646",
+                 highlightthickness=0,
+                 selectbackground="#A6A6A6",
+                 activestyle="none")
+my_list.pack(side=LEFT,fill=BOTH)
 
 
 
