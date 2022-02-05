@@ -31,7 +31,21 @@ my_list= Listbox(my_frame,
                  selectbackground="#A6A6A6",
                  activestyle="none")
 my_list.pack(side=LEFT,fill=BOTH)
+# Creating ScrollBar
+my_scrollbar=Scrollbar(my_frame,)
+my_scrollbar.pack(side=RIGHT,fill=BOTH)
 
+    #add scrollbar
+my_list.config(yscrollcommand=my_scrollbar.set)
+my_scrollbar.config(command=my_list.yview)
+
+    #Creating Entrybox
+my_entry=Entry(root,font=("Helvetica",24),width=26,)
+my_entry.pack(pady=20)
+
+    #Creating button frame
+button_frame=Frame(root)
+button_frame.pack(pady=20)
 
 
 
