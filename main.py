@@ -49,6 +49,47 @@ button_frame.pack(pady=20)
 
 
 
+#Add items to Menu
+file_menu=Menu(my_menu,tearoff=False)
+my_menu.add_cascade(label="File",menu=file_menu)
+
+    #Add dropdown Items
+file_menu.add_command(label="Save List",command=save_list)
+file_menu.add_command(label="Open List",command=open_list)
+file_menu.add_separator()
+file_menu.add_command(label="Clear List",command=delete_list)
+
+
+
+
+    #Adding buttons
+delete_button=Button(button_frame,text="Delete ITEM",command=delete_item)
+add_button=Button(button_frame,text="Add ITEM",command=add_item)
+cross_off_button=Button(button_frame,text="Cross_off ITEM",command=cross_off_item)
+uncross_button=Button(button_frame,text="Uncross ITEM",command=uncross_item)
+delete_crossed_button=Button(button_frame,text="Delete Crossed",command=delete_crossed_item)
+
+delete_button.grid(row=0,column=0)
+add_button.grid(row=0,column=1,padx=20,)
+cross_off_button.grid(row=0,column=2)
+uncross_button.grid(row=0,column=3,padx=20,)
+delete_crossed_button.grid(row=0,column=4)
+
+    #CREATING QUERY BUTTON
+query_btn=Button(button_frame,text="SHOW RECORDS",command=query)
+query_btn.grid(row=1,column=2)
+# Delete from database
+delete_db_btn=Button(button_frame,text="Delete from db",command=delete_db)
+delete_db_btn.grid(row=1,column=3)
+
+delete_label=Label(button_frame,text="Delete ID")
+delete_box=Entry(button_frame,)
+
+delete_label.grid(row=4, column=2)
+delete_box.grid(row=4, column=3)
+
+
+
 
 
 
