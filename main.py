@@ -88,6 +88,63 @@ delete_box=Entry(button_frame,)
 delete_label.grid(row=4, column=2)
 delete_box.grid(row=4, column=3)
 
+def cross_off_item():
+    #Cross off Item
+    my_list.itemconfig(
+        my_list.curselection(),
+        fg="#DEDEDE",)
+
+    #Getting rid of selection bar
+    my_list.select_clear(0,END)
+
+def uncross_item():
+    # Cross off Item
+    my_list.itemconfig(
+        my_list.curselection(),
+        fg="#464646", )
+
+    # Getting rid of selection bar
+    my_list.select_clear(0, END)
+
+def delete_crossed_item():
+    count=0
+    while count < my_list.size():
+        if my_list.itemcget(count,"fg")== "#DEDEDE":
+            my_list.delete(my_list.index(count))
+
+        else:
+            count+=1
+
+    #  At list
+def save_list():
+   file_name=filedialog.asksaveasfilename()
+   initialdir="Desktop",
+   title="Save File",
+   filetypes=(
+       ("Dat Files",".dat"),
+       ("All Files",".* "))
+   if file_name:
+        if file_name.endswith(".dat"):
+            pass
+        else:
+            file_name=f'{file_name}.dat'
+
+            #Delete crossed off items before saving
+        count=0
+        while count < my_list.size():
+            if my_list.itemcget(count, "fg") == "#DEDEDE":
+                my_list.delete(my_list.index(count))
+
+            else:
+                count += 1
+        #GRABBING ALL FROM LIST
+        stuff=my_list.get(0,END)
+
+       #Open the file
+        output_file=open(file_name,'wb')
+       #Add the stuff to the file
+        pickle.dump(stuff,output_file)
+
 
 
 
