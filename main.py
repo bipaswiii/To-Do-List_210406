@@ -145,6 +145,18 @@ def save_list():
        #Add the stuff to the file
         pickle.dump(stuff,output_file)
 
+#Database Creation
+conn= sqlite3.connect('todolist.db')
+#making cursor
+c = conn.cursor()
+
+#Create table
+'''
+c.execute("""CREATE TABLE TodoWorks(
+
+       To_do text
+        )""")
+'''
 
 
 
