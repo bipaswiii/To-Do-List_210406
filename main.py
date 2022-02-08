@@ -157,6 +157,46 @@ c.execute("""CREATE TABLE TodoWorks(
        To_do text
         )""")
 '''
+#FUNCTIONS
+def delete_item():
+
+    my_list.delete(ANCHOR)
+
+def delete_db():
+    # connecting database
+    conn = sqlite3.connect('todolist.db')
+
+    # Creating cursor
+    c = conn.cursor()
+
+    c.execute("DELETE FROM TodoWorks WHERE oid="+delete_box.get())
+    conn.commit()
+    conn.close()
+
+
+def add_item():
+
+    conn = sqlite3.connect('todolist.db')
+    # making cursor
+    c = conn.cursor()
+
+    #instering into Table
+    c.execute("INSERT INTO TodoWorks VALUES (:To_do)",
+    {
+                'To_do': my_entry.get(),
+    })
+
+    my_list.insert(END, my_entry.get())
+    my_entry.delete(0, END)
+
+
+
+    #comminting change
+    conn.commit()
+
+    # closing conn
+    conn.close()
+
 
 
 
